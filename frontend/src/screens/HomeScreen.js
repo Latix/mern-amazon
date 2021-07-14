@@ -1,17 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Product from "../components/Product";
-import data from "../data";
+import axios from "axios";
+import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
 
 export default function HomeScreen() {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const { data } = await axios.get("/api/products");
+                setLoading(false);
+                setProducts(data);
+            } catch (error) {
+                setError(error.message);
+                setLoading(false);
+            }
+        }
+
+        fetchData();
+    }, [])
     return (
         <div>
-            <div className="row center">
             {
-                data.products.map((product) => (
-                <Product key={product._id} product={product} />
-                ))
+                loading ? (
+                    <LoadingBox></LoadingBox>
+                ) : error ? (
+                    <MessageBox variant="danger">{error}</MessageBox>
+                ) : (
+                    <div className="row center">
+                    {
+                        products.map((product) => (
+                        <Product key={product._id} product={product} />
+                        ))
+                    }
+                    </div>
+                )
+
             }
-            </div>
         </div>
     )
 }
