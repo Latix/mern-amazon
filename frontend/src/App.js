@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch } from 'react-router-dom';
 import Routes from './Routes';
 
 function App() {
@@ -7,11 +7,11 @@ function App() {
         <div className="grid-container">
           <header className="row">
             <div>
-              <a className="brand" href="/">amazona</a>
+              <Link className="brand" to="/">amazona</Link>
             </div>
             <div>
-              <a href="/cart">Carts</a>
-              <a href="/signin">Sign In</a>
+              <Link to="/cart">Carts</Link>
+              <Link to="/signin">Sign In</Link>
             </div>
           </header>
           <main>
