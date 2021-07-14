@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
+import Routes from './Routes';
 
 function App() {
   return (
@@ -17,8 +16,7 @@ function App() {
           </header>
           <main>
             <Switch>
-              <Route path="/product/:id" component={ProductScreen} />
-              <Route path="/" component={HomeScreen} exact />
+              <Routes />
             </Switch>
           </main>
           <footer className="row center">All right reserved</footer>
