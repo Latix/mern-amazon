@@ -1,18 +1,37 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from "redux-thunk";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import logger from "redux-logger";
 import { cartReducer } from './reducers/cartReducers';
 import { productListReducer, productDetailsReducer } from './reducers/productReducers';
 
 const initialState = {};
 
-const reducer = combineReducers({
+const middleWares = [
+    thunk
+];
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    // blacklist: ['navigation'] will not be persisted
+  }
+
+const reducers = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
 });
 
+const persistedReducer = persistReducer(persistConfig, reducers)
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer, initialState, composeEnhancer(applyMiddleware(thunk)));
+if(process.env.NODE_ENV === 'development')
+{
+    middleWares.push(logger);
+}
 
-export default store;
+export const store = createStore(persistedReducer, initialState, composeEnhancer(applyMiddleware(...middleWares)));
+export const persistor = persistStore(store);
