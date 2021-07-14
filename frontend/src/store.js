@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import logger from "redux-logger";
 import { cartReducer } from './reducers/cartReducers';
 import { productListReducer, productDetailsReducer } from './reducers/productReducers';
+import { userSignInReducer } from './reducers/userReducers';
 
 const initialState = {};
 
@@ -22,6 +23,7 @@ const reducers = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
+    userSignin: userSignInReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers)
