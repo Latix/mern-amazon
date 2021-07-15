@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import CartScreen from './screens/CartScreen'
 import HomeScreen from './screens/HomeScreen'
+import OrderScreen from './screens/OrderScreen'
 import PaymentMethodScreen from './screens/PaymentMethodScreen'
 import PlaceOrderScreen from './screens/PlaceOrderScreen'
 import ProductScreen from './screens/ProductScreen'
@@ -19,6 +20,7 @@ export default function Routes() {
             <Route path="/shipping" component={ShippingAddressScreen} />
             <Route path="/payment" component={PaymentMethodScreen} />
             <Route path="/placeorder" component={PlaceOrderScreen} />
+            <Route path="/order/:id" component={OrderScreen} />
             <Route path="/" component={HomeScreen} exact />
         </div>
     )
