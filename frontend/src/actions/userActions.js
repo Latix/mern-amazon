@@ -1,5 +1,6 @@
-import { USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGNOUT } from "../constants/userConstants";
+import { USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGNOUT } from "../constants/userConstants";
 import axios from "axios";
+import { CART_CLEAR_SHIPPING_ADDRESS } from "../constants/cartConstants";
 
 export const signin = (email, password) => async (dispatch) => {
     dispatch({
@@ -32,5 +33,9 @@ export const register = (name, email, password) => async (dispatch) => {
 export const signout = () => async (dispatch) => {
     dispatch({
         type: USER_SIGNOUT,
+    });
+
+    dispatch({
+        type: CART_CLEAR_SHIPPING_ADDRESS,
     });
 }

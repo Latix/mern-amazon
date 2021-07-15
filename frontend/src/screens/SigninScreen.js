@@ -21,7 +21,7 @@ export default function SigninScreen(props) {
         if (userInfo) {
             props.history.push(redirect);
         }
-    }, [userInfo])
+    }, [userInfo, props.history, redirect])
     const submitHandler = (e) => {
         e.preventDefault();
         
@@ -53,7 +53,7 @@ export default function SigninScreen(props) {
                     <label htmlFor="email">Password</label>
                     <input 
                         type="password" 
-                        id="email" 
+                        id="password" 
                         placeholder="Enter password" 
                         required 
                         onChange={(e) => setPassword(e.target.value)} 
