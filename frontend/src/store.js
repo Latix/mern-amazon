@@ -6,7 +6,7 @@ import logger from "redux-logger";
 import { cartReducer } from './reducers/cartReducers';
 import { productListReducer, productDetailsReducer } from './reducers/productReducers';
 import { userRegisterReducer, userSignInReducer } from './reducers/userReducers';
-import { orderCreateReducers, orderDetailsReducers } from './reducers/orderReducers';
+import { orderCreateReducers, orderDetailsReducers, orderPayReducers } from './reducers/orderReducers';
 
 const initialState = {};
 
@@ -27,7 +27,8 @@ const reducers = combineReducers({
     userSignin: userSignInReducer,
     userRegister: userRegisterReducer,
     orderCreate: orderCreateReducers,
-    orderDetails: orderDetailsReducers
+    orderDetails: orderDetailsReducers,
+    orderPay: orderPayReducers
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers)
