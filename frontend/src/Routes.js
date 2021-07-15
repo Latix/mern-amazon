@@ -4,6 +4,7 @@ import CartScreen from './screens/CartScreen'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
 import RegisterScreen from './screens/RegisterScreen'
+import ShippingAddressScreen from './screens/ShippingAddressScreen'
 import SigninScreen from './screens/SigninScreen'
 
 export default function Routes() {
@@ -13,6 +14,7 @@ export default function Routes() {
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/register" component={RegisterScreen} />
             <Route path="/signin" component={SigninScreen} />
+            <Route path="/shipping" component={ShippingAddressScreen} />
             <Route path="/" component={HomeScreen} exact />
         </div>
     )
