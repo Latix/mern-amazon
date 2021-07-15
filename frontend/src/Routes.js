@@ -23,6 +23,7 @@ export default function Routes() {
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <PrivateRoute path="/order/:id" component={OrderScreen} />
             <Route path="/" component={HomeScreen} exact />
+            <Route component={HomeScreen} />
         </div>
     )
 }
