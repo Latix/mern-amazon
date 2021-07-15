@@ -42,7 +42,7 @@ app.get('/api/config/paypal', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send("Server is ready")
+    res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
 });
 
 app.get("*", (req, res) => {
