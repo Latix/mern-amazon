@@ -15,6 +15,7 @@ import SigninScreen from './screens/SigninScreen'
 export default function Routes() {
     return (
         <div>
+            <Route exact path="/" component={HomeScreen} />
             <Route exact path="/cart/:id?" component={CartScreen} />
             <Route exact path="/product/:id" component={ProductScreen} />
             <Route exact path="/register" component={RegisterScreen} />
@@ -23,8 +24,8 @@ export default function Routes() {
             <Route exact path="/payment" component={PaymentMethodScreen} />
             <Route exact path="/placeorder" component={PlaceOrderScreen} />
             <PrivateRoute exact path="/order/:id" component={OrderScreen} />
-            <Route exact path="/" component={HomeScreen} />
-            <Route component={PageNotFound} />
+            {/* <Route component={PageNotFound} /> */}
+            <Redirect to="/"/>
         </div>
     )
 }
