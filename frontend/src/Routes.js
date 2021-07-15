@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import PageNotFound from './components/PageNotFound'
 import PrivateRoute from './components/PrivateRoute'
 import CartScreen from './screens/CartScreen'
 import HomeScreen from './screens/HomeScreen'
@@ -23,7 +24,7 @@ export default function Routes() {
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <PrivateRoute path="/order/:id" component={OrderScreen} />
             <Route path="/" component={HomeScreen} exact />
-            <Route component={HomeScreen} />
+            <Route component={PageNotFound} />
         </div>
     )
 }
