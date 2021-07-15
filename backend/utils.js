@@ -25,10 +25,14 @@ export const isAuth = (req, res, next) => {
             }
         })
     } else {
+<<<<<<< HEAD
         res.status(401).send({ 
             status: 401,
             statusText: "error",
             message: "No token" 
         });
+=======
+        res.status(401).send({ message: "No token" });
+>>>>>>> a5cd976d5fe53f48971b58ded8924ffc8d3bfa1e
     }
 }
