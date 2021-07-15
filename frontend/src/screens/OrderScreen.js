@@ -46,7 +46,7 @@ export default function OrderScreen(props) {
                 }
             }
         }
-    }, [dispatch, orderId, sdkReady, order._id, order.isPaid]);
+    }, [dispatch, orderId, sdkReady, order]);
 
     const successPaymentHandler = () => {
         dispatch(payOrder(order, paymentResult))
@@ -151,7 +151,7 @@ export default function OrderScreen(props) {
                                 </div>
                             </li>
                             {
-                                !order.isPaid && (
+                                !order?.isPaid && (
                                     <li>
                                         {
                                             !sdkReady ? (<LoadingBox></LoadingBox>):
