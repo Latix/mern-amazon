@@ -24,7 +24,7 @@ export default function Routes() {
             <Route exact path="/placeorder" component={PlaceOrderScreen} />
             <PrivateRoute exact path="/order/:id" component={OrderScreen} />
             <Route exact path="/" component={HomeScreen} />
-            <Redirect to="/" />
+            <Route component={PageNotFound} />
         </div>
     )
 }
